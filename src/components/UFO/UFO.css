@@ -1,0 +1,21 @@
+.ufo {
+  position: absolute;
+  width: 50px;
+  height: 20px;
+  background-color: silver;
+  border-radius: 25px 25px 0 0;
+  transform: rotate(-45deg);
+  animation: flyingUFO 5s linear infinite;
+}
+
+@keyframes flyingUFO {
+  0% {
+    transform: rotate(-45deg) translateX(0);
+  }
+  50% {
+    transform: rotate(-45deg) translateX(100vw);
+  }
+  100% {
+    transform: rotate(-45deg) translateX(0);
+  }
+}

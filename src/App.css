@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  /* Set a background image */
+  background-image: url('/public/spaceman2.jpg');
+  
+  /* Specify background properties */
+  background-size: cover; /* Make the background cover the entire viewport */
+  background-position: center center; /* Center the background image */
+  background-repeat: no-repeat;
+  
+  /* Set a background color in case the image is not available or loaded */
+  background-color: #282c34; 
+  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+
+

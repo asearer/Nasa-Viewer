@@ -1,0 +1,79 @@
+/* NavBar.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; 
+}
+
+.nav-container {
+  position: relative;
+  height: 100%;
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 10px;
+  border-radius: 5px;
+  display: flex; 
+  flex-direction: column; 
+}
+
+.submenu li {
+  margin: 5px 0; 
+}
+
+.submenu li a {
+  color: white;
+}
+
+.shooting-star {
+  position: absolute;
+  top: 250%;
+  left: -1500px; 
+  width: 20px;
+  height: 2px;
+  background-color: white; 
+  animation: shootingStarAnimation 5s linear infinite; 
+}
+
+@keyframes shootingStarAnimation {
+  0% {
+    left: -1500px; 
+  }
+  100% {
+    left: calc(100vw + 500px); 
+  }
+}
