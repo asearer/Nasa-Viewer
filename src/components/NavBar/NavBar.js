@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './NavBar.css';
 import NasaApodComponent from '../NasaApodComponent/NasaApodComponent';
-import MarsRoverGallery from '../MarsRoverGallery/MarsRoverGallery'; 
-import ApodSearch from '../DateSearchForm/Apod/DateSearchForm';  
-import EpicSearch from '../DateSearchForm/Epic/DateSearchForm'; 
-import MarsSearch from '../DateSearchForm/MarsRover/DateSearchForm'; 
+import MarsRoverGallery from '../MarsRoverGallery/MarsRoverGallery';
+import ApodSearch from '../DateSearchForm/Apod/DateSearchForm';
+import EpicSearch from '../DateSearchForm/Epic/DateSearchForm';
+import MarsSearch from '../DateSearchForm/MarsRover/DateSearchForm';
 
-const ShootingStarNavBar = () => {
+const ShootingStarNavBar = ({ isLoggedIn }) => {
   const [lightboxImages, setLightboxImages] = useState([]);
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
@@ -28,25 +28,29 @@ const ShootingStarNavBar = () => {
       <div className="nav-container">
         <nav className="navbar">
           <ul>
-            <li>
-              <div onClick={toggleSubMenu}>Search</div>
-              {isSubMenuOpen && (
-                <ul className="submenu">
-                  <li><Link to="/search/apod" onClick={hideSubMenu}>APOD</Link></li>
-                  <li><Link to="/search/epic" onClick={hideSubMenu}>EPIC</Link></li>
-                  <li><Link to="/search/mars" onClick={hideSubMenu}>Mars</Link></li>
-                </ul>
-              )}
-            </li>
-            <li>|</li>
-            <li>
-              <Link to="/photo-of-the-day" onClick={hideSubMenu}>Photo of the Day</Link>
-            </li>
-            <li>|</li>
-            <li>
-              <Link to="/mars-rover" onClick={hideSubMenu}>Mars Rover</Link>
-              <MarsRoverGallery onCameraSelect={handleCameraSelect} />
-            </li>
+            {isLoggedIn && ( // Render these links only if user is logged in
+              <>
+                <li>
+                  <div onClick={toggleSubMenu}>Search Image Sources by Date</div>
+                  {isSubMenuOpen && (
+                    <ul className={`submenu typewriter`}>
+                      <li><Link to="/search/apod" onClick={hideSubMenu}>Astronomy Photo of the Day</Link></li>
+                      <li><Link to="/search/epic" onClick={hideSubMenu}>Earth Polychromatic Imaging Camera</Link></li>
+                      <li><Link to="/search/mars" onClick={hideSubMenu}>Mars Curiosity Rover</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li>|</li>
+                <li>
+                  <Link to="/photo-of-the-day" onClick={hideSubMenu}>Photo of the Day</Link>
+                </li>
+                <li>|</li>
+                <li>
+                  <Link to="/mars-rover" onClick={hideSubMenu}>Mars Curiosity Rover</Link>
+                  <MarsRoverGallery onCameraSelect={handleCameraSelect} />
+                </li>
+              </>
+            )}
           </ul>
         </nav>
         <div className="shooting-star"></div>
@@ -67,6 +71,21 @@ const ShootingStarNavBar = () => {
           </div>
         </div>
       )}
+      {/* Typewriter effect */}
+      <style>
+        {`
+          @keyframes typing {
+            from { width: 0 } /* Start from 0 width */
+            to { width: 100vw } /* End at 100% viewport width */
+          }
+
+          .typewriter {
+            overflow: hidden; /* Hide overflow to mimic typewriter effect */
+            white-space: nowrap; /* Prevent text from wrapping */
+            animation: typing 3s steps(20) forwards; /* Typewriter animation */
+          }
+        `}
+      </style>
     </Router>
   );
 };
