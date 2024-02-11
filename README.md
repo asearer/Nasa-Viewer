@@ -81,9 +81,9 @@ Future Enhancements:
     Responsive Design: Optimize the application for different screen sizes and devices.
     Error Handling: Improve error handling to provide better feedback to users.
 
-Deployment:
 
-The application is deployed and accessible at https://asearer.github.io/nasa-photo-viewer/
+
+
 
 This documentation provides an overview of the React application, its features, components, and potential future enhancements. 
 -----------------------------------------------------------------------------------------------------------------
