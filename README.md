@@ -81,7 +81,7 @@ Future Enhancements:
     Responsive Design: Optimize the application for different screen sizes and devices.
     Error Handling: Improve error handling to provide better feedback to users.
 
-
+The application is currently deployed and accessible at https://nasa-test-pbadzlxa5-alonza-searers-projects.vercel.app/
 
 
 
